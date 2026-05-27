@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+}
+
+/* Google Fonts - Smythe */
+.smythe-regular {
+    font-family: "Smythe", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
