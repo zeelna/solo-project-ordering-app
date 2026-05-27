@@ -80,8 +80,12 @@ p {
 }
 
 /* Menu section*/
-.menu-section {
-    padding-top: 67px;
+section {
+    padding-top: 45px;
+}
+
+section .menu-section {
+    padding-top: 23px;
 }
 
 .image-menu-item {
@@ -94,7 +98,7 @@ p {
     flex-direction: row;
     padding-bottom: 51px;
     border-bottom: 1px #D2D2D2 solid;
-    margin-bottom: 45px;
+    padding-top: 45px;
 }
 
 .menu-text {
@@ -114,16 +118,77 @@ p {
 }
 
 .btn-add-item {
-    display: inline-block;
+    display: block;
     width: 50px;
     height: 50px;
     margin-top: 8px;
     border-radius: 50%;
     border: 2px solid #DEDEDE;
     background-color: #fffaf0;
-    text-align: center;
     text-decoration: none;
     font-size: 2rem;
-    font-weight: normal;
     color: #3C3C3C;
 }
+/* Your order section*/
+.title-your-order {
+    text-align: center;
+}
+
+.flex-space-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.order-item {
+    margin-bottom: 22px;
+}
+
+/* Your order section*/
+.container-cart-btns {
+    display: flex;
+    flex-direction: row;
+    justify-self: start;
+    gap: 0 13px;
+}
+
+/* buttons */
+.borderless {
+    border: none;
+    background: transparent;
+    color: #BBBBBB;
+    cursor: pointer;
+    outline: none;
+}
+
+.orders {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #222222;
+    margin-top: 64px;
+}
+
+.total {
+    margin-top: 14px;
+}
+
+.btn-complete-order, .btn-pay {
+    display: block;
+    width: 100%;
+    /* Btn typography*/
+    text-align: center;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
+    /* Button styling*/
+    background: #16DB99;
+    border: none;
+    border-radius: 4px;
+    /* Positioning*/
+    margin: 53px 0;
+    padding: 18px;
+}
+
+/* Modal*
