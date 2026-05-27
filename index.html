@@ -5,18 +5,33 @@
     <title>Restaurant Ordering App</title>
     <!-- Stylesheet-->
     <link rel="stylesheet" href="index.css">
-    <!-- Fonts -->
+    <!-- Fonts: Inter and Smythe -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Smythe&display=swap" rel="stylesheet">
 </head>
 <body>
     <main>
+        <header id="header" class="section header-section" >
+            <img src="images/burger.png"
+                 alt="toasty burger on a rustic table">
 
+            <div id="header-text" class="container header-text">
+                <h1>Jimmy's Diner</h1>
+                <h2>The best burgers and pizzas in town</h2>
+            </div>
+        </header>
+
+        <section id="menu-section" class="section menu-section" >
+            <!-- Here are menu items, set by 'index.js' -->
+        </section>
+        <section id="order-section" class="section order-section" >
+            <!-- Here is the order/checkout section, set by 'index.js' -->
+        </section>
     </main>
     <!-- Modal (Checkout, pop-up functionality) -->
-    <div id="modal-checkout">
-
+    <div id="modal-checkout" class="container-modal-checkout" >
+        <!-- here is the payment modal state, set by 'index.js' -->
     </div>
     <!-- JavaScript -->
     <script src="index.js" type="module"></script>

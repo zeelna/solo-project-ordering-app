@@ -1,5 +1,10 @@
 body {
     margin: 0;
+    /* Google Fonts - Smythe */
+    font-family: "Smythe", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: #222222;
 }
 
 /* Google Fonts - Smythe */
@@ -7,4 +12,118 @@ body {
     font-family: "Smythe", system-ui;
     font-weight: 400;
     font-style: normal;
+}
+
+.inter { /* font-weight 100 to 900*/
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* Format content to center*/
+.section {
+    margin: 0 auto;
+    width: 600px;
+    background-color: #fffaf0;
+}
+
+.container {
+    margin-left: 46px;
+    margin-right: 46px;
+}
+
+/* Header styling*/
+header img {
+    display: block;
+}
+/* Header - position text atop of image*/
+.header-section {
+    position: relative;
+}
+
+.header-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    margin-top: 46px;
+    color: #fffaf0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, p {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.375rem;
+}
+
+h2 {
+    font-size: 1.375rem;
+}
+
+h4 {
+    font-size: 1.75rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+/* Menu section*/
+.menu-section {
+    padding-top: 67px;
+}
+
+.image-menu-item {
+    font-size: 4.875rem;
+
+}
+
+.item-details {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 51px;
+    border-bottom: 1px #D2D2D2 solid;
+    margin-bottom: 45px;
+}
+
+.menu-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 31px;
+    width: 358px;
+}
+
+.menu-text p,
+.menu-text h4 {
+    padding-bottom: 8px;
+}
+
+.accent {
+    font-weight: bold;
+}
+
+.btn-add-item {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-top: 8px;
+    border-radius: 50%;
+    border: 2px solid #DEDEDE;
+    background-color: #fffaf0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: normal;
+    color: #3C3C3C;
 }
