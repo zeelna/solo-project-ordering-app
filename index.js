@@ -11,9 +11,11 @@ document.addEventListener('click', function(e){
         handleClearItemClick(e.target.dataset.clear)
 
     } else if (e.target.id === 'btn-complete-order'){
-
+        handleCompleteOrderClick();
     } else if (e.target.id === 'btn-pay'){
-
+        /* Must use .preventDefault() to avoid credential-leak via URI */
+        e.preventDefault()
+        handlePayOrderClick();
     }
 })
 
@@ -105,20 +107,116 @@ function getShoppingCart() {
                         <h4 class="title-total">Total price: </h4>
                         <h5 class="price-total">$${totalPrice}</h5>
                     </div>
-                    <button class="btn-complete-order">Complete order</button>
+                    <button id="btn-complete-order" class="btn-complete-order">Complete order</button>
             </div>
         `
 }
 
-function render() {
-    document.getElementById('menu-section').innerHTML = getMenuItems()
+const payModal = document.getElementById('modal-checkout')
+const payModalInner = document.getElementById('modal-checkout-inner')
+function handleCompleteOrderClick(){
+    openPayModal()
+    render()
+}
 
-    const isItemsInCart = Object.entries(shoppingCart).some(([key, value]) => {
+function openPayModal(){
+    payModalInner.innerHTML = `
+        <h2>Enter card details</h2>
+        <form id="form-payment" class="form-payment">
+            <div class="form-group">
+                <label class="label-text" for="name-id">Your name</label>
+                <input
+                    class="input-field"
+                    type="text"
+                    placeholder="ex. John Smith"
+                    name="name"
+                    id="name-id"
+                    required
+                    >
+            </div>
+            <div class="form-group">
+                <label class="label-text" for="card-id">Card number</label>
+                <input
+                   class="input-field"
+                   type="text"
+                   placeholder="ex. IBAN12345678"
+                   name="card"
+                   id="card-id"
+                   required
+                >
+            </div>
+            <div class="form-group">
+                <label class="label-text" for="cvv-id">CVV</label>
+                <input
+                   class="input-field"
+                   type="password"
+                   placeholder="ex. 098"
+                   name="cvv"
+                   id="cvv-id"
+                   required
+                >
+            </div>
+            <input id="btn-pay" class="btn-pay" type="submit" value="Pay">
+        </form>
+        `
+    payModal.style.display = 'flex'
+}
+
+function closePayModal(){
+    payModal.style.display = 'none'
+}
+
+function handlePayOrderClick() {
+    closePayModal()
+
+    /* Build HTML to notify user of Order Completed : */
+    /* A. Extract name for HTML */
+    const paymentForm = document.getElementById('form-payment')
+    const paymentFormData = new FormData(paymentForm)
+    const fullName = paymentFormData.get('name')
+    /* B. Update dom with message */
+    const orderCompletedHTML = `
+            <div id="container-completed-order" class="container completed-order">
+                <h2 id="msg-completed-order" class="msg-completed-order">
+                    Thanks, ${fullName}! Your order is on its way!
+                </h2>
+            </div>
+        `
+    /* C. Add message below menu-items.*/
+
+    openOrderCompleteModal(orderCompletedHTML)
+
+    /* Clean-up */
+    if (isItemsInCart(shoppingCart)) {
+        shoppingCart = {}
+    }
+    render()
+}
+
+function openOrderCompleteModal(orderCompletedHTML){
+    const completedSection = document.getElementById('completed-section')
+    completedSection.style.display = 'flex'
+    completedSection.innerHTML = orderCompletedHTML;
+}
+
+function closeOrderCompleteModal(){
+    /* Find more appropriate logic*/
+    const completedSection = document.getElementById('completed-section')
+    completedSection.style.display = 'none'
+    completedSection.innerHTML = ''
+}
+
+function isItemsInCart(shoppingCart){
+    return Object.entries(shoppingCart).some(([key, value]) => {
         console.log(key, value)
         return value >= 1
     })
-    console.log(isItemsInCart)
-    if (isItemsInCart) {
+}
+function render() {
+    document.getElementById('menu-section').innerHTML = getMenuItems()
+
+    if (isItemsInCart(shoppingCart)) {
+        closeOrderCompleteModal()
         document.getElementById('cart-section').innerHTML = getShoppingCart()
     } else {
         document.getElementById('cart-section').innerHTML = ''

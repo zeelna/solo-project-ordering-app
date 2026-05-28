@@ -186,9 +186,94 @@ section .menu-section {
     background: #16DB99;
     border: none;
     border-radius: 4px;
+    cursor: pointer;
     /* Positioning*/
     margin: 53px 0;
     padding: 18px;
 }
 
-/* Modal*
+.btn-complete-order:hover, .btn-complete-order:focus,
+.btn-pay:hover, .btn-pay:hover {
+    opacity: 0.75;
+}
+
+/* Modal* */
+.container-modal-checkout {
+    display: none;  /* must be none by default*/
+    position: fixed;
+    width: 524px;
+    /*
+    height: 542px;
+    */
+    top: 125px;
+    left: 0;
+    right: 0;
+
+    margin: 0 auto;
+    background-color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 0 20px 30px 4px #757575 ;
+}
+
+.modal-checkout-inner h2 {
+    text-align: center;
+    padding: 46px 0;
+}
+
+.modal-checkout-inner,
+.form-payment {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+/* Start: Label atop of border*/
+.form-group {
+    position: relative;
+    display: block;
+    border: 1px solid #757575;
+    border-radius: 4px;
+    color: #757575;
+    margin-bottom: 23px;
+    padding: 16px 26px;
+}
+.form-group > label {
+    position: absolute;
+    top: -12px; /* Tweak this for X-position, set some negative value */
+    left: 20px; /* Tweak this for Y-position */
+    padding: 0 4px;
+    background-color:white;
+}
+.form-group > input {
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+}
+/* End: Label atop of border*/
+
+.btn-pay {
+    margin-top: 23px;
+}
+
+/* Order completed*/
+.completed-order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 504px;
+    background-color: #ECFDF5;
+    margin-bottom: 30px;
+}
+
+.msg-completed-order {
+    color: #065f46;
+}
+
+/* Completed payment section*/
+.completed-order {
+
+}
+
+.completed-section {
+    display: none;
+}
