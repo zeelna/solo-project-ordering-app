@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Smythe&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main>
+    <main id="main">
         <header id="header" class="section header-section" >
             <img src="images/burger.png"
                  alt="toasty burger on a rustic table">
@@ -28,10 +28,14 @@
         <section id="cart-section" class="section cart-section" >
             <!-- Here is the shoppingCart section, set by 'index.js' -->
         </section>
+        <section id="completed-section" class="section completed-section" >
+        </section>
     </main>
     <!-- Modal (Checkout, pop-up functionality) -->
     <div id="modal-checkout" class="container-modal-checkout" >
+        <div id="modal-checkout-inner" class="modal-checkout-inner container">
         <!-- here is the payment modal state, set by 'index.js' -->
+        </div>
     </div>
     <!-- JavaScript -->
     <script src="index.js" type="module"></script>
